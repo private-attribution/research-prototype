@@ -1,7 +1,4 @@
-/target/
-*.swp
-*~
-/Cargo.lock
-/.vscode/
-*.code-workspace
-*/db
+Player-Data/
+Programs/Public-Input/
+Programs/Bytecode/
+Programs/Schedules/
