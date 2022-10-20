@@ -10,7 +10,7 @@ To run the prototype, you will need to clone the MP-SPDZ repo so that it neighbo
 From the current directory (i.e. `raw-ipa/research-prototype`)
 
 ```bash
-cd ../..
+cd ..
 gh repo clone data61/MP-SPDZ
 cd MP-SPDZ
 
@@ -38,7 +38,7 @@ make clean -B -j 8 replicated-ring-party.x
 Finally, you'll need to setup SSL for the parties. From the `raw-ipa/research-prototype` directory, run:
 
 ```bash
-../../MP-SPDZ/Scripts/setup-ssl.sh 3
+../MP-SPDZ/Scripts/setup-ssl.sh 3
 ```
 
 ## Running the Prototype
@@ -50,20 +50,20 @@ Make sure you are now back in this directory, `raw-ipa/research-prototype`.
 You'll need to create a python virtual environment, and install the requirements.
 
 ```bash
-python3 virtualenv ../.venv
-source ../.venv/bin/activate
+python3 virtualenv .venv
+source .venv/bin/activate
 pip install -r ../requirements.txt
 ```
 
 Note that this will also install a version of the MP-SPDZ compiler. You can also install that directly with your local copy with
 
 ```
-pip install -e ../../MP-SPDZ
+pip install -e ../MP-SPDZ
 ```
 
 ### Running IPA scripts
 
-From this `raw-ipa/research-prototype` repository, you can now run the IPA scripts with:
+From this `research-prototype` repository, you can now run the IPA scripts with:
 
 ```bash
 python ipa
@@ -97,7 +97,7 @@ You can use the same arguments with both `compile` and `generate_input` (though 
 To simulate the MPC locally, run:
 
 ```bash
-../../MP-SPDZ/Scripts/ring.sh -R 32 ipae2e
+../MP-SPDZ/Scripts/ring.sh -R 32 ipae2e
 ```
 
 ### Running the MPC on multiple hosts
@@ -124,17 +124,17 @@ COORDINATOR=<host IP or DNS>
 Run this command on the coordinator host
 
 ```bash
-../../MP-SPDZ/replicated-ring-party.x --player 0 ipae2e --hostname $COORDINATOR
+../MP-SPDZ/replicated-ring-party.x --player 0 ipae2e --hostname $COORDINATOR
 ```
 
 Start two other MPC parties:
 
 host 1:
 ```bash
-../../MP-SPDZ/replicated-ring-party.x --player 1 ipae2e --hostname $COORDINATOR
+../MP-SPDZ/replicated-ring-party.x --player 1 ipae2e --hostname $COORDINATOR
 ```
 
 host 2:
 ```bash
-../../MP-SPDZ/replicated-ring-party.x --player 1 ipae2e --hostname $COORDINATOR
+../MP-SPDZ/replicated-ring-party.x --player 1 ipae2e --hostname $COORDINATOR
 ```
