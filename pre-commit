@@ -10,7 +10,6 @@ root="$(git rev-parse --show-toplevel 2>/dev/null)"
 set -e
 
 # Some sanity checking.
-hash cargo
 [[ -n "$root" ]]
 
 # Installation.
@@ -29,24 +28,12 @@ fi
 stashfile=$(mktemp .pre-commit.stashXXXXXX)
 trap 'set +e;git stash pop -q; rm -f "$stashfile"' EXIT
 git stash push -k -u -q -m "pre-commit stash"
-if ! errors=($(cargo fmt -- --check -l)); then
-    echo "Formatting errors found."
-    echo "Run \`cargo fmt\` to fix the following files:"
-    for err in "${errors[@]}"; do
-        echo "  $err"
-    done
-    exit 1
-fi
 
 error() {
    echo "-----------------------"
    echo "$@"
    exit 1
 }
-
-cargo clippy --tests -- -D warnings --D clippy::pedantic || error "Clippy errors"
-
-cargo test || error "Test failures"
 
 VENV="$root/.venv/bin"
 pyrun() {
