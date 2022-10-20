@@ -1,6 +1,11 @@
+*.code-workspace
+*.swp
+*~
+/.venv/
+/.vscode/
 Player-Data/
-Programs/Public-Input/
 Programs/Bytecode/
+Programs/Public-Input/
 Programs/Schedules/
 __pycache__/
 dist/
