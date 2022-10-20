@@ -3,4 +3,4 @@ flake518
 isort
 docopt
 schema
--e git+ssh://git@github.com/eriktaubeneck/MP-SPDZ.git@39b6d7e22dedc5798823d306741d33ff6635bc25#egg=mp_spdz_compiler
+-e git+https://github.com/eriktaubeneck/MP-SPDZ@39b6d7e22dedc5798823d306741d33ff6635bc25#egg=mp_spdz_compiler
